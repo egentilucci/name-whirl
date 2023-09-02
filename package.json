@@ -1,0 +1,11 @@
+{
+  "name": "name-whirl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/egentilucci/name-whirl.git",
+  "author": "egentilucci <elia.gentilucci@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
