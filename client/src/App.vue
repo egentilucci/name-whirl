@@ -1,12 +1,14 @@
 <script setup>
+import Header from "./components/Header.vue";
 import Spinner from "./components/Spinner.vue";
-const options = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
   <div>
-    <h1>Name Whirl: Spinnning Wheel</h1>
-    <Component :is="Spinner" :options="options" />
+    <component :is="Header" />
+    <Component :is="Spinner" />
+    <Component :is="Footer" />
   </div>
 </template>
 
