@@ -1,12 +1,3 @@
-<template>
-  <div id="app">
-    <h3>{{ options }}</h3>
-    <div class="wheel" :class="{ spinning: spinning }" @click="startSpinning">
-      <div class="wheel-content">{{ selectedOption }}</div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
@@ -35,6 +26,15 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div id="app">
+    <h3>{{ options }}</h3>
+    <div class="wheel" :class="{ spinning: spinning }" @click="startSpinning">
+      <div class="wheel-content">{{ selectedOption }}</div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .wheel {
