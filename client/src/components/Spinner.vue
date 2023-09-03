@@ -41,6 +41,15 @@ function removeOption(option) {
       {{ option }}
       <button class="remove-btn" @click="removeOption(option)">x</button>
     </div>
+    <div>
+      <div v-if="options.length > 1">
+        You added {{ options.length }} names, let's spin!!! ٩(^ᗜ^ )و
+      </div>
+      <div v-else-if="options.length === 1">
+        You added 1 name, the result is somewhat predictable :D
+      </div>
+      <div v-else>You added no names, nothing to spin ˙◠˙</div>
+    </div>
     <div class="wheel" :class="{ spinning }" @click="startSpinning">
       <div class="wheel-content">{{ selectedOption }}</div>
     </div>
