@@ -10,10 +10,13 @@
 
 <script>
 export default {
+  props: {
+    options: Array, // Define the inputData prop
+  },
   data() {
     return {
       spinning: false,
-      options: ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"],
+      // options: ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"],
       selectedOption: "",
     };
   },
