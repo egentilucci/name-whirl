@@ -24,6 +24,10 @@ const addOption = () => {
     newOption.value = "";
   }
 };
+
+function removeOption(option) {
+  options.value.splice(options.value.indexOf(option), 1);
+}
 </script>
 
 <template>
@@ -35,6 +39,7 @@ const addOption = () => {
     />
     <div v-for="(option, index) in options" :key="index" class="option">
       {{ option }}
+      <button class="remove-btn" @click="removeOption(option)">x</button>
     </div>
     <div class="wheel" :class="{ spinning }" @click="startSpinning">
       <div class="wheel-content">{{ selectedOption }}</div>
@@ -43,6 +48,14 @@ const addOption = () => {
 </template>
 
 <style scoped>
+.remove-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  border-color: white;
+  color: white;
+  text-align: center;
+  border-radius: 25%;
+}
 .wheel {
   width: 200px;
   height: 200px;
