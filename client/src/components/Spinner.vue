@@ -1,10 +1,8 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
-const props = defineProps({
-  options: Array,
-});
-
+const options = ref([]);
+const newOption = ref("");
 const spinning = ref(false);
 const selectedOption = ref("");
 
@@ -13,17 +11,31 @@ const startSpinning = () => {
     spinning.value = true;
     selectedOption.value = "";
     setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * props.options.length);
-      selectedOption.value = props.options[randomIndex];
+      const randomIndex = Math.floor(Math.random() * options.value.length);
+      selectedOption.value = options.value[randomIndex];
       spinning.value = false;
     }, 2000);
+  }
+};
+
+const addOption = () => {
+  if (newOption.value.trim() !== "") {
+    options.value.push(newOption.value);
+    newOption.value = "";
   }
 };
 </script>
 
 <template>
   <div id="app">
-    <h3>{{ options }}</h3>
+    <input
+      v-model="newOption"
+      @keyup.enter="addOption"
+      placeholder="Add a name"
+    />
+    <div v-for="(option, index) in options" :key="index" class="option">
+      {{ option }}
+    </div>
     <div class="wheel" :class="{ spinning }" @click="startSpinning">
       <div class="wheel-content">{{ selectedOption }}</div>
     </div>
