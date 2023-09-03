@@ -1,3 +1,3 @@
 <template>
-  <h1>Name Whirl: Spinnning Wheel</h1>
+  <h1>Name Whirl: Spinning Wheel</h1>
 </template>
