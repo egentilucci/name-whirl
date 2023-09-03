@@ -1,36 +1,30 @@
-<script>
-export default {
-  props: {
-    options: Array, // Define the inputData prop
-  },
-  data() {
-    return {
-      spinning: false,
-      // options: ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"],
-      selectedOption: "",
-    };
-  },
-  methods: {
-    startSpinning() {
-      if (!this.spinning) {
-        this.spinning = true;
-        this.selectedOption = "";
-        // Simulate a delay before selecting a random string
-        setTimeout(() => {
-          const randomIndex = Math.floor(Math.random() * this.options.length);
-          this.selectedOption = this.options[randomIndex];
-          this.spinning = false; // Stop spinning when a string is selected
-        }, 2000); // Adjust the delay time as needed
-      }
-    },
-  },
+<script setup>
+import { ref, computed } from "vue";
+
+const props = defineProps({
+  options: Array,
+});
+
+const spinning = ref(false);
+const selectedOption = ref("");
+
+const startSpinning = () => {
+  if (!spinning.value) {
+    spinning.value = true;
+    selectedOption.value = "";
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * props.options.length);
+      selectedOption.value = props.options[randomIndex];
+      spinning.value = false;
+    }, 2000);
+  }
 };
 </script>
 
 <template>
   <div id="app">
     <h3>{{ options }}</h3>
-    <div class="wheel" :class="{ spinning: spinning }" @click="startSpinning">
+    <div class="wheel" :class="{ spinning }" @click="startSpinning">
       <div class="wheel-content">{{ selectedOption }}</div>
     </div>
   </div>
@@ -47,7 +41,7 @@ export default {
   position: relative;
   transform-origin: 50% 50%;
   transition: transform 2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  cursor: pointer; /* Add this to change cursor to pointer on hover */
+  cursor: pointer;
 }
 
 .wheel-content {
