@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Name Whirl: Spinnning Wheel</h1>
     <Spinner :options="options" />
   </div>
 </template>

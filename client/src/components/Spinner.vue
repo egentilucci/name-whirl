@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Spinning Wheel App</h1>
     <h3>{{ options }}</h3>
     <div class="wheel" :class="{ spinning: spinning }" @click="startSpinning">
       <div class="wheel-content">{{ selectedOption }}</div>
