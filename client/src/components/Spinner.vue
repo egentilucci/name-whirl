@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const options = ref([]);
+const options = ref(["test1", "test2", "test3"]);
 const newOption = ref("");
 const spinning = ref(false);
 const selectedOption = ref("");
